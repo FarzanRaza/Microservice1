@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -30,5 +31,11 @@ public class CommentServiceImpl implements CommentService{
         return null;
     }
 
+    }
+
+    @Override
+    public List<Comment> getAllCommentByPostId(String postId) {
+        List<Comment> allCommentsByPostId = commentRepository.findAllCommentsByPostId(postId);
+        return allCommentsByPostId;
     }
 }

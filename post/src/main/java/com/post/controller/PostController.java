@@ -1,6 +1,7 @@
 package com.post.controller;
 
 import com.post.entity.Post;
+import com.post.payload.PostDto;
 import com.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,4 +25,10 @@ public class PostController {
         Post record = postService.getRecord(postId);
         return new ResponseEntity<>(record,HttpStatus.OK);
     }
+    @GetMapping("/{postId}/comments")
+    public  ResponseEntity<PostDto> getAllCommentForPost(@PathVariable String postId){
+        PostDto allCommentForPost = postService.getAllCommentForPost(postId);
+        return new ResponseEntity<>(allCommentForPost,HttpStatus.OK);
+    }
+
 }
