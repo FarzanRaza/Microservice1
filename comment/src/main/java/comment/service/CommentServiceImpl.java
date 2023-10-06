@@ -21,7 +21,7 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public Comment saveRecords(Comment comment) {
-        Post forObject = restTemplate.getRestTemplate().getForObject("http://localhost:8081/api/posts/"+comment.getPostId(), Post.class);
+        Post forObject = restTemplate.getRestTemplate().getForObject("http://POST-SERVICE/api/posts/"+comment.getPostId(), Post.class);
 
     if(forObject!=null){
         comment.setCommentId(UUID.randomUUID().toString());
